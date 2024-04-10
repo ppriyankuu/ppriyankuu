@@ -6,7 +6,7 @@
 - 📫 Email : **workwithpriyanku@gmail.com**
 >
 >
-<h3 align="left">Social handles:</h3>
+<h3 align="left">Social handles</h3>
 <p align="left">
 <a href="https://twitter.com/ppriyankuu_" target="blank"><img align="center" src="https://i.postimg.cc/br94hf4v/icons8-twitter-100.png" alt="priyanku gogoi" height="40" width="40" /></a>
 <a href="https://www.linkedin.com/in/priyanku-gogoi" target="blank"><img align="center" src="https://i.postimg.cc/Mpgwtqwk/icons8-linkedin-40.png" alt="priyanku gogoi" height="40" width="40" /></a>
