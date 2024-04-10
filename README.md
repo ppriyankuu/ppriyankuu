@@ -10,7 +10,7 @@
 <p align="left">
 <a href="https://twitter.com/ppriyankuu_" target="blank"><img align="center" src="https://i.postimg.cc/br94hf4v/icons8-twitter-100.png" alt="priyanku gogoi" height="40" width="40" /></a>
 <a href="https://www.linkedin.com/in/priyanku-gogoi" target="blank"><img align="center" src="https://i.postimg.cc/Mpgwtqwk/icons8-linkedin-40.png" alt="priyanku gogoi" height="40" width="40" /></a>
-<a href="https://instagram.com/ppriyankuu_" target="blank"><img align="center" src="https://i.postimg.cc/W1dFhN8x/icons8-instagram-100.png" alt="ppriyankuu_" height="40" width="40" /></a>
+<a href="https://instagram.com/ppriyankuu_" target="blank"><img align="center" src="https://i.postimg.cc/W1dFhN8x/icons8-instagram-100.png" alt="ppriyankuu_" height="50" width="50" /></a>
 </p>
 
 
