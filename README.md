@@ -4,7 +4,7 @@
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=ppriyankuu&label=Profile%20views&color=0e75b6&style=flat" alt="ppriyankuu" /> </p>
 
 - 📫 How to reach me **workwithpriyanku@gmail.com**
-<div style="display=flex">
+<div style="display: flex; gap: 0.5rem;">
 <h3 align="left">Social handles:</h3>
 <p align="left">
 <a href="https://twitter.com/ppriyankuu" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="ppriyankuu" height="30" width="40" /></a>
