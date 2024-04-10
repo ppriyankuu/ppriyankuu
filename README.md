@@ -8,7 +8,7 @@
 >
 <h3 align="left">Social handles:</h3>
 <p align="left">
-<a href="https://twitter.com/ppriyankuu_" target="blank"><img align="center" src="https://postimg.cc/n9M34gF8" alt="priyanku gogoi" height="30" width="40" /></a>
+<a href="https://twitter.com/ppriyankuu_" target="blank"><img align="center" src="https://i.postimg.cc/br94hf4v/icons8-twitter-100.png" alt="priyanku gogoi" height="30" width="40" /></a>
 <a href="https://www.linkedin.com/in/priyanku-gogoi" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="priyanku gogoi" height="30" width="40" /></a>
 <a href="https://instagram.com/ppriyankuu_" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="ppriyankuu_" height="30" width="40" /></a>
 </p>
