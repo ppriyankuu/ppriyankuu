@@ -3,15 +3,16 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=ppriyankuu&label=Profile%20views&color=0e75b6&style=flat" alt="ppriyankuu" /> </p>
 
-- 📫 How to reach me **workwithpriyanku@gmail.com**
-<div style="display: flex; gap: 0.5 rem;">
+- 📫 Email : **workwithpriyanku@gmail.com**
+>
+>
 <h3 align="left">Social handles:</h3>
 <p align="left">
 <a href="https://twitter.com/ppriyankuu" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="ppriyankuu" height="30" width="40" /></a>
 <a href="https://www.linkedin.com/in/priyanku-gogoi" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="priyanku gogoi" height="30" width="40" /></a>
 <a href="https://instagram.com/ppriyankuu_" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="ppriyankuu_" height="30" width="40" /></a>
 </p>
-</div>
+
 
 ### aboutMe.ts
 ```typescript
@@ -27,6 +28,7 @@ const priyankuGogoi = {
     }
 };
 ```
+
 
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=ppriyankuu&show_icons=true&locale=en" alt="ppriyankuu" /></p>
 
