@@ -2,8 +2,8 @@
 
 I'm Priyanku Gogoi, a Software Engineer.
 
-📫 **Email:** workwithpriyanku@gmail.com
-🌐 **Portfolio:** ppriyankuu.vercel.app
+📫 **Email:** workwithpriyanku@gmail.com <br />
+🌐 **Portfolio:** https://ppriyankuu.vercel.app
 
 ```typescript
 const priyankuGogoi = {
