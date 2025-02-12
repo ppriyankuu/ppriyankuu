@@ -7,9 +7,9 @@ import Education from '@/components/education';
 
 const Home = () => {
   return (
-  <div className="min-h-screen bg-dark-bg text-white font-lexend">
+  <div className="min-h-screen bg-dark-bg text-white font-lexend xl:px-8">
       <Header />
-      <main className="container mx-auto py-12 px-4 xl:px-8">
+      <main className="container mx-auto py-12 px-4 md:px-0">
         <Intro />
         <Skills />
         <Repos />
