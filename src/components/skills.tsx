@@ -1,8 +1,8 @@
 import React from 'react';
-import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt } from 'react-icons/fa';
+import { FaReact, FaNodeJs } from 'react-icons/fa';
 import { FaGolang, FaDocker, FaGitAlt, FaAws } from "react-icons/fa6";
-import { RiNextjsFill, RiJavascriptFill } from "react-icons/ri";
-import { SiTypescript, SiMongodb, SiMysql, SiKubernetes, SiGraphql, SiTailwindcss, SiJest, SiExpress, SiNginx, SiFirebase, SiElasticstack, SiRabbitmq, SiTerraform, SiVercel } from "react-icons/si";
+import { RiNextjsFill } from "react-icons/ri";
+import { SiTypescript, SiMongodb, SiMysql, SiGraphql, SiTailwindcss, SiExpress, SiNginx, SiFirebase } from "react-icons/si";
 import { DiRedis } from "react-icons/di";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { TbBrandRedux } from "react-icons/tb";
