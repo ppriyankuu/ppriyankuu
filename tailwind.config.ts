@@ -7,10 +7,14 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
+     extend: {
+      fontFamily: {
+        lexend: ['Lexend', 'sans-serif'],
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        'dark-bg': '#121212',
+        'dark-gray': '#1E1E1E',
+        'light-gray': '#333333',
       },
     },
   },
