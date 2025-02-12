@@ -24,7 +24,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-dark-bg text-white container mx-auto p-6 rounded-b-2xl border-2 border-t-0 border-r-rose-400 border-l-rose-400 border-b-rose-400">
+    <header className="bg-dark-bg text-white container lg:px-8 mx-auto p-6 rounded-b-2xl border-2 border-t-0 border-r-rose-400 border-l-rose-400 border-b-rose-400">
       <div className="container mx-auto flex justify-between items-center">
         <h1 className="text-2xl font-bold font-lexend">ppriyankuu.</h1>
 
