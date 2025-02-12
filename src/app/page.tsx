@@ -9,7 +9,7 @@ const Home = () => {
   return (
   <div className="min-h-screen bg-dark-bg text-white font-lexend">
       <Header />
-      <main className="container mx-auto py-12 px-4 sm:px-0">
+      <main className="container mx-auto py-12 px-4 xl:px-8">
         <Intro />
         <Skills />
         <Repos />
