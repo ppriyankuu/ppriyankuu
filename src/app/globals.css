@@ -4,6 +4,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap');
 
+html {
+  scroll-behavior: smooth;
+}
+
 .font-geist-italic {
   font-family: var(--font-geist-sans);
   font-style: italic !important;

@@ -34,7 +34,6 @@ const Repos = () => {
         setLoading(false);
       }
     };
-
     if (!fetchedPages.includes(page)) {
       fetchRepos();
     }
@@ -44,18 +43,27 @@ const Repos = () => {
 
   const handleLoadLess = () => {
     setPage((prev) => Math.max(1, prev - 1));
-    setTimeout(() => {
+
+    // Use requestAnimationFrame for smooth scrolling adjustments
+    requestAnimationFrame(() => {
       if (buttonsRef.current) {
         const buttonsRect = buttonsRef.current.getBoundingClientRect();
         const offsetTop = buttonsRect.top + window.scrollY;
         const viewportHeight = window.innerHeight;
-        const scrollToPosition = offsetTop - viewportHeight + buttonsRect.height + 100;
+
+        // Calculate the scroll position relative to the current scroll position
+        const scrollToPosition = Math.max(
+          0,
+          offsetTop - viewportHeight + buttonsRect.height + 100
+        );
+
+        // Scroll to the calculated position smoothly
         window.scrollTo({
           top: scrollToPosition,
           behavior: 'smooth',
         });
       }
-    }, 100);
+    });
   };
 
   const visibleRepos = repos.slice(0, page * 6);
