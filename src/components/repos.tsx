@@ -13,28 +13,28 @@ const Repos = () => {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [fetchedPages, setFetchedPages] = useState<number[]>([]);
-
-  // Create a ref for the buttons container
   const buttonsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fetchRepos = async () => {
-      setLoading(true); // Start loading
+      setLoading(true);
       try {
         const response = await fetch(
           `https://api.github.com/users/ppriyankuu/repos?page=${page}&per_page=6`
         );
+        if (!response.ok) {
+          throw new Error('Failed to fetch repositories');
+        }
         const data: Repo[] = await response.json();
-        setRepos((prev) => [...prev, ...data]); // Append new repos to the existing list
-        setFetchedPages((prev) => [...prev, page]); // Mark the page as fetched
+        setRepos((prev) => [...prev, ...data]);
+        setFetchedPages((prev) => [...prev, page]);
       } catch (error) {
         console.error('Error fetching repos:', error);
       } finally {
-        setLoading(false); // Stop loading
+        setLoading(false);
       }
     };
 
-    // Fetch repos only if the current page hasn't been fetched yet
     if (!fetchedPages.includes(page)) {
       fetchRepos();
     }
@@ -44,23 +44,18 @@ const Repos = () => {
 
   const handleLoadLess = () => {
     setPage((prev) => Math.max(1, prev - 1));
-
-    // Scroll to the buttons container smoothly after reducing the page
     setTimeout(() => {
       if (buttonsRef.current) {
         const buttonsRect = buttonsRef.current.getBoundingClientRect();
-        const offsetTop = buttonsRect.top + window.scrollY; // Absolute position of the buttons
+        const offsetTop = buttonsRect.top + window.scrollY;
         const viewportHeight = window.innerHeight;
-
-        // Calculate the scroll position so that the buttons are near the bottom of the screen
-        const scrollToPosition = offsetTop - viewportHeight + buttonsRect.height + 100; // Add some padding
-
+        const scrollToPosition = offsetTop - viewportHeight + buttonsRect.height + 100;
         window.scrollTo({
           top: scrollToPosition,
           behavior: 'smooth',
         });
       }
-    }, 100); // Small delay to ensure the DOM updates before scrolling
+    }, 100);
   };
 
   const visibleRepos = repos.slice(0, page * 6);
@@ -76,7 +71,7 @@ const Repos = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {visibleRepos.length > 0 ? (
-            visibleRepos.map((repo, index) => (
+            visibleRepos.map((repo) => (
               <div
                 key={repo.id}
                 className={`bg-neutral-800 border-2 border-indigo-400 rounded-2xl p-4 md:p-6 flex flex-col h-full relative min-h-[200px]`}
@@ -107,14 +102,14 @@ const Repos = () => {
             </div>
           )}
         </div>
-        {/* Buttons Container */}
         <div
-          ref={buttonsRef} // Attach the ref here
+          ref={buttonsRef}
           className="flex flex-col md:flex-row gap-4 justify-center mt-8"
         >
           <button
             onClick={handleLoadMore}
             disabled={loading}
+            aria-label="Load more repositories"
             className="border-2 text-white px-6 py-3 rounded-full hover:bg-white hover:border-black hover:text-black disabled:opacity-50"
           >
             {loading ? 'Loading...' : 'Load More'}
@@ -122,6 +117,7 @@ const Repos = () => {
           {page > 1 && (
             <button
               onClick={handleLoadLess}
+              aria-label="Load fewer repositories"
               className="border-2 text-white px-6 py-3 rounded-full hover:bg-white hover:border-black hover:text-black"
             >
               Load Less
