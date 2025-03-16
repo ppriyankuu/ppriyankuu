@@ -33,9 +33,28 @@ const Skills = () => {
     <section id="skills" className="bg-neutral-900 text-white border-2 border-rose-400 p-12 rounded-2xl my-4">
       <div className="container mx-auto">
         <h2 className="mb-8 text-3xl sm:text-4xl md:text-5xl font-bold font-lexend text-center">Skills.</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8">
+
+        {/* Mobile View: 3 columns */}
+        <div className="sm:hidden flex justify-center">
+          <div className="grid grid-cols-3 xs:grid-cols-3 gap-4 place-items-center">
+            {skills.map((skill, index) => (
+              <div
+                key={index}
+                className="bg-neutral-800 rounded-full border-2 border-indigo-400 w-20 h-20 flex items-center justify-center transition-transform duration-300 hover:scale-105"
+              >
+                <skill.icon className={`${skill.color}`} size={40} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Larger screens: 2 to 6 columns */}
+        <div className="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8">
           {skills.map((skill, index) => (
-            <div key={index} className="bg-neutral-800 rounded-xl border-2 border-indigo-400 p-4 flex flex-col items-center transition-transform duration-300 hover:scale-105">
+            <div
+              key={index}
+              className="bg-neutral-800 rounded-xl border-2 border-indigo-400 p-4 flex flex-col items-center transition-transform duration-300 hover:scale-105"
+            >
               <skill.icon size={60} className={`mb-4 ${skill.color}`} />
               <h3 className="text-xl font-thin font-lexend">{skill.name}</h3>
             </div>
