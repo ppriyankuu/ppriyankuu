@@ -9,7 +9,7 @@ I'm Priyanku Gogoi, a Software Engineer.
 const priyankuGogoi = {
     pronouns: "He" | "Him",
     code: ["TypeScript", "Go", "Python"],
-    askMeAbout: ["development", "system architecture", "devOps", "web3"],
+    askMeAbout: ["development", "system architecture", "devOps", "linux sysadmin"],
     technologies: {
         frontEnd: {
             ts: ["React", "Next.js"],
@@ -18,7 +18,7 @@ const priyankuGogoi = {
             ts: ["Node", "Express", "NestJS"],
             go: ["Gin"],
         },
-        devOps: ["Docker🐳", "CI/CD", "Nginx", "GitHub Actions"],
+        devOps: ["AWS", "Docker🐳", "CI/CD", "Nginx", "GitHub Actions"],
         databases: ["PostgreSQL", "MongoDB", "MySQL", "Firebase", "Redis"],
         misc: ["REST APIs", "GraphQL", "WebSockets"],
     },
