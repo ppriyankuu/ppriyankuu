@@ -3,7 +3,7 @@ import { FaLinkedin, FaInstagram, FaGithub } from 'react-icons/fa';
 const SocialLinks = () => {
   const links = [
     { name: 'LinkedIn', icon: FaLinkedin, url: 'https://www.linkedin.com/in/priyanku-gogoi', color: 'text-blue-500' },
-    { name: 'Instagram', icon: FaInstagram, url: 'https://instagram.com/ppriyankuu_', color: 'text-pink-500' },
+    { name: 'Instagram', icon: FaInstagram, url: 'https://instagram.com/_dempho', color: 'text-pink-500' },
     { name: 'GitHub', icon: FaGithub, url: 'https://github.com/ppriyankuu', color: 'text-gray-200' },
   ];
 
