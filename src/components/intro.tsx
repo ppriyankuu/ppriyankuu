@@ -19,7 +19,7 @@ const Intro = () => {
                             Priyanku.
                         </span>
                         {` I work on `}
-                        <span className="text-rose-400 font-semibold">softwares</span>
+                        <span className="text-rose-400 font-semibold">software(s)</span>
                         {` that work `}
                         <span className="text-rose-400 font-semibold">fast</span>
                         {`, look`}
