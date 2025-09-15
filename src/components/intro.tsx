@@ -18,8 +18,8 @@ const Intro = () => {
                         <span className="bg-rose-400 text-neutral-900 px-1 rounded-md ml-2">
                             Priyanku.
                         </span>
-                        {` I build `}
-                        <span className="text-rose-400 font-semibold">web apps</span>
+                        {` I work on `}
+                        <span className="text-rose-400 font-semibold">softwares</span>
                         {` that work `}
                         <span className="text-rose-400 font-semibold">fast</span>
                         {`, look`}
