@@ -14,27 +14,15 @@ const Intro = () => {
                         About Me.
                     </h2>
                     <p className="text-lg font-lexend leading-relaxed mx-auto md:mx-0">
-                        {`Hey, I’m `}
-                        <span className="bg-rose-400 text-neutral-900 px-1 rounded-md ml-2">
-                            Priyanku.
-                        </span>
-                        {` I work on `}
-                        <span className="text-rose-400 font-semibold">software(s)</span>
-                        {` that work `}
-                        <span className="text-rose-400 font-semibold">fast</span>
-                        {`, look`}
-                        <span className="text-rose-400 font-semibold"> good</span>
-                        {`, and don’t break (`}
-                        <span className="text-indigo-500 font-semibold">most of the time</span>
-                        {`). I love solving `}
-                        <span className="text-rose-400 font-semibold">tricky problems</span>
-                        {` and making things as simple as possible. When I’m not coding, I’m probably checking out `}
-                        <span className="text-rose-400 font-semibold">new tech</span>
-                        {`, fixing something that wasn’t broken, or adding `}
-                        <span className="text-rose-400 font-semibold">&quot;just one more feature&quot;</span>
-                        {`. Let’s create something `}
-                        <span className="text-rose-400 font-semibold">awesome</span>
-                        {`!`}
+                      {`Hey, I’m `}
+                      <span className="bg-rose-400 text-neutral-900 px-1 rounded-md ml-2">
+                        Priyanku.
+                      </span>{" "}
+                      {`I write code that mostly behaves itself.`}
+                      <br />
+                      {`I like building things that are fast, clean, and don’t fall apart when you look away. I enjoy figuring out how things works (and sometimes why it doesn’t).`}
+                      <br />
+                      {`I also write blogs occasionally — tech, ideas, or whatever pops into my head.`}
                     </p>
                 </div>
                 {/* Image Section */}
