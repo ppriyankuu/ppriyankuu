@@ -14,9 +14,9 @@ const Intro = () => {
                         About Me.
                     </h2>
                     <p className="text-lg font-lexend leading-relaxed mx-auto md:mx-0">
-                      {`Hey, I’m `}
+                      {`Hey, I’m`}
                       <span className="bg-rose-400 text-neutral-900 px-1 rounded-md ml-2">
-                        Priyanku.
+                        Priyanku
                       </span>{" "} <br />
                       {`I write code that mostly behaves itself.`}
                       <br />
