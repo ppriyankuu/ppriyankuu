@@ -20,7 +20,7 @@ const Intro = () => {
                       </span>{" "} <br />
                       {`I write code that mostly behaves itself.`}
                       <br />
-                      {`I like building things that are fast, clean, and don’t fall apart when you look away. I enjoy figuring out how things works (and sometimes why it doesn’t).`}
+                      {`I like building things that are fast, clean, and don’t fall apart when you look away. ${<br />} I enjoy figuring out how things works (and sometimes why it doesn’t).`}
                       <br />
                       {`I also write blogs occasionally — tech, ideas, or whatever pops into my head.`}
                     </p>
