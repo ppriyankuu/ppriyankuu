@@ -17,7 +17,7 @@ const Intro = () => {
                       {`Hey, I’m `}
                       <span className="bg-rose-400 text-neutral-900 px-1 rounded-md ml-2">
                         Priyanku.
-                      </span>{" "}
+                      </span>{" "} <br />
                       {`I write code that mostly behaves itself.`}
                       <br />
                       {`I like building things that are fast, clean, and don’t fall apart when you look away. I enjoy figuring out how things works (and sometimes why it doesn’t).`}
