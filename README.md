@@ -4,7 +4,6 @@ I'm Priyanku Gogoi, a Software Engineer.
 
 📫 **Email:** workwithpriyanku@gmail.com <br />
 🌐 **Portfolio:** https://ppriyankuu.vercel.app <br />
-𓂃🖊 **Blogs:** https://medium.com/@ppriyankuu
 
 ```typescript
 const priyankuGogoi = {
