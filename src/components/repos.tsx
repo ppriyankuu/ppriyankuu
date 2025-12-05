@@ -6,6 +6,7 @@ interface Repo {
   name: string;
   description: string | null;
   html_url: string;
+  updated_at: string;
 }
 
 const TOP_PICKS = ["goback", "terwmser", "refacto", "stocky", "godkv", "system-monitor", "secret-speak", "easymod", "db-replication", "seiban", "container-playground", "file-upload-api", "ppriyankuu"];
@@ -83,6 +84,17 @@ const Repos = () => {
   const visibleRepos = repos.slice(0, page * 6);
   const hasMore = visibleRepos.length < repos.length;
 
+  const formatDate = (isoDate: string | null | undefined) => {
+    if (!isoDate) return '';
+    const date = new Date(isoDate);
+
+    return date.toLocaleDateString('en-GB', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
+    });
+  };
+
   return (
     <section
       id="repos"
@@ -100,9 +112,12 @@ const Repos = () => {
                 className={`bg-neutral-800 border-2 border-indigo-400 rounded-2xl p-4 md:p-6 flex flex-col h-full relative min-h-[120px]`}
               >
                 <div className="flex-1">
-                  <h3 className="text-xl md:text-2xl font-bold mb-2">
+                  <h3 className="text-xl md:text-2xl font-bold">
                     {repo.name}
                   </h3>
+                  <p className="text-xs md:text-sm text-gray-400 mb-2">
+                    Updated {formatDate(repo.updated_at)}
+                  </p>
                   <p className="text-sm md:text-base line-clamp-3 mb-12">
                     {repo.description || 'No description available'}
                   </p>
