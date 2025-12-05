@@ -97,7 +97,7 @@ const Repos = () => {
             visibleRepos.map((repo) => (
               <div
                 key={repo.id}
-                className={`bg-neutral-800 border-2 border-indigo-400 rounded-2xl p-4 md:p-6 flex flex-col h-full relative min-h-[200px]`}
+                className={`bg-neutral-800 border-2 border-indigo-400 rounded-2xl p-4 md:p-6 flex flex-col h-full relative min-h-[120px]`}
               >
                 <div className="flex-1">
                   <h3 className="text-xl md:text-2xl font-bold mb-2">
