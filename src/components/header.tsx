@@ -31,7 +31,7 @@ const Header = () => {
         {/* Desktop Nav */}
         <nav className="hidden md:flex">
           <ul className="flex space-x-4">
-            {["skills", "repos", "education", "social"].map((item) => (
+            {["skills", "repos", "blogs", "education", "social"].map((item) => (
               <li key={item}>
                 <Link
                   href={`#${item}`}
@@ -51,9 +51,8 @@ const Header = () => {
       </div>
       {/* Mobile Menu */}
       <nav
-        className={`md:hidden mt-4 overflow-hidden transition-all duration-500 ${
-          menuOpen ? "max-h-96 opacity-100 pb-4" : "max-h-0 opacity-0"
-        }`}
+        className={`md:hidden mt-4 overflow-hidden transition-all duration-500 ${menuOpen ? "max-h-96 opacity-100 pb-4" : "max-h-0 opacity-0"
+          }`}
       >
         <ul className="flex flex-col space-y-2 bg-neutral-800 p-4 rounded-lg border-2 border-indigo-400 backdrop-blur-sm">
           {["skills", "repos", "education", "social"].map((item) => (

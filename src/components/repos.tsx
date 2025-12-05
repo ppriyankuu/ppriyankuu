@@ -8,56 +8,70 @@ interface Repo {
   html_url: string;
 }
 
+const TOP_PICKS = ["goback", "terwmser", "refacto", "stocky", "godkv", "system-monitor", "secret-speak", "easymod", "db-replication", "seiban", "container-playground", "file-upload-api", "ppriyankuu"];
+
 const Repos = () => {
   const [repos, setRepos] = useState<Repo[]>([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [fetchedPages, setFetchedPages] = useState<number[]>([]);
   const buttonsRef = useRef<HTMLDivElement>(null);
+
+  const sortRepos = (list: Repo[]) => {
+    return [...list].sort((a, b) => {
+      const indexA = TOP_PICKS.indexOf(a.name);
+      const indexB = TOP_PICKS.indexOf(b.name);
+
+      const aIsTop = indexA !== -1;
+      const bIsTop = indexB !== -1;
+
+      if (aIsTop && !bIsTop) return -1;
+      if (!aIsTop && bIsTop) return 1;
+
+      if (aIsTop && bIsTop) return indexA - indexB;
+
+      return a.name.localeCompare(b.name);
+    })
+  }
 
   useEffect(() => {
     const fetchRepos = async () => {
       setLoading(true);
       try {
         const response = await fetch(
-          `https://api.github.com/users/ppriyankuu/repos?page=${page}&per_page=6`
+          `https://api.github.com/users/ppriyankuu/repos?per_page=100`
         );
         if (!response.ok) {
           throw new Error('Failed to fetch repositories');
         }
+
         const data: Repo[] = await response.json();
-        setRepos((prev) => [...prev, ...data]);
-        setFetchedPages((prev) => [...prev, page]);
+
+        setRepos(sortRepos(data));
       } catch (error) {
         console.error('Error fetching repos:', error);
       } finally {
         setLoading(false);
       }
     };
-    if (!fetchedPages.includes(page)) {
-      fetchRepos();
-    }
-  }, [page, fetchedPages]);
+    fetchRepos();
+  }, []);
 
   const handleLoadMore = () => setPage((prev) => prev + 1);
 
   const handleLoadLess = () => {
     setPage((prev) => Math.max(1, prev - 1));
 
-    // Use requestAnimationFrame for smooth scrolling adjustments
     requestAnimationFrame(() => {
       if (buttonsRef.current) {
         const buttonsRect = buttonsRef.current.getBoundingClientRect();
         const offsetTop = buttonsRect.top + window.scrollY;
         const viewportHeight = window.innerHeight;
 
-        // Calculate the scroll position relative to the current scroll position
         const scrollToPosition = Math.max(
           0,
           offsetTop - viewportHeight + buttonsRect.height + 100
         );
 
-        // Scroll to the calculated position smoothly
         window.scrollTo({
           top: scrollToPosition,
           behavior: 'smooth',
@@ -67,6 +81,7 @@ const Repos = () => {
   };
 
   const visibleRepos = repos.slice(0, page * 6);
+  const hasMore = visibleRepos.length < repos.length;
 
   return (
     <section
@@ -106,7 +121,7 @@ const Repos = () => {
             ))
           ) : (
             <div className="col-span-full text-center text-gray-400">
-              No repositories found.
+              {loading ? 'Loading repos...' : 'No repositories found.'}
             </div>
           )}
         </div>
@@ -114,14 +129,16 @@ const Repos = () => {
           ref={buttonsRef}
           className="flex flex-col md:flex-row gap-4 justify-center mt-8"
         >
-          <button
-            onClick={handleLoadMore}
-            disabled={loading}
-            aria-label="Load more repositories"
-            className="border-2 text-white px-6 py-3 rounded-full hover:bg-white hover:border-black hover:text-black disabled:opacity-50"
-          >
-            {loading ? 'Loading...' : 'Load More'}
-          </button>
+          {hasMore && (
+            <button
+              onClick={handleLoadMore}
+              disabled={loading}
+              aria-label="Load more repositories"
+              className="border-2 text-white px-6 py-3 rounded-full hover:bg-white hover:border-black hover:text-black disabled:opacity-50"
+            >
+              {loading ? 'Loading...' : 'Load More'}
+            </button>
+          )}
           {page > 1 && (
             <button
               onClick={handleLoadLess}
