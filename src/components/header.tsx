@@ -55,7 +55,7 @@ const Header = () => {
           }`}
       >
         <ul className="flex flex-col space-y-2 bg-neutral-800 p-4 rounded-lg border-2 border-indigo-400 backdrop-blur-sm">
-          {["skills", "repos", "education", "social"].map((item) => (
+          {["skills", "repos", "blogs", "education", "social"].map((item) => (
             <li key={item} className="border-2 border-gray-300 rounded-lg">
               <Link
                 href={`#${item}`}
