@@ -7,9 +7,42 @@ interface Repo {
   description: string | null;
   html_url: string;
   updated_at: string;
+  topics?: string[];
 }
 
-const TOP_PICKS = ["goback", "terwmser", "refacto", "stocky", "godkv", "system-monitor", "secret-speak", "easymod", "db-replication", "seiban", "container-playground", "file-upload-api", "ppriyankuu"];
+interface StarredRepo {
+  name: string;
+  owner: { login: string };
+}
+
+const SECONDARY_PICKS: string[] = [
+  "godkv",
+  "easymod",
+  "container-playground",
+  "code-bits",
+  "stocky",
+  "system-monitor",
+  "chat-ws-server",
+  "secret-speak",
+  "ppriyankuu",
+  "db-replication",
+  "file-share-backend",
+  "seiban",
+  "file-upload-api",
+  "3d-renderer",
+];
+const TO_BE_HIDDEN_REPOS: string[] = [
+  "cms",
+  "IBM-repo",
+  "echome",
+  "doc",
+  "goofinAround",
+  "nestjs-prac",
+  "file-sharing-app",
+  "WhiteboardCanvas",
+  "snippy",
+  "Dynamic-social-app"
+];
 
 const Repos = () => {
   const [repos, setRepos] = useState<Repo[]>([]);
@@ -17,43 +50,67 @@ const Repos = () => {
   const [loading, setLoading] = useState(false);
   const buttonsRef = useRef<HTMLDivElement>(null);
 
-  const sortRepos = (list: Repo[]) => {
-    return [...list].sort((a, b) => {
-      const indexA = TOP_PICKS.indexOf(a.name);
-      const indexB = TOP_PICKS.indexOf(b.name);
+  const sortRepos = (list: Repo[], favoriteNames: string[]) => {
+    const favoriteSet = new Set(favoriteNames);
 
-      const aIsTop = indexA !== -1;
-      const bIsTop = indexB !== -1;
+    const orderMap: Record<string, number> = {};
+    SECONDARY_PICKS.forEach((name, idx) => {
+      orderMap[name] = idx;
+    });
 
-      if (aIsTop && !bIsTop) return -1;
-      if (!aIsTop && bIsTop) return 1;
+    return [...list]
+      .filter((repo) => !TO_BE_HIDDEN_REPOS.includes(repo.name))
+      .sort((a, b) => {
+        const aFav = favoriteSet.has(a.name);
+        const bFav = favoriteSet.has(b.name);
 
-      if (aIsTop && bIsTop) return indexA - indexB;
+        // 1) favorites first
+        if (aFav && !bFav) return -1;
+        if (!aFav && bFav) return 1;
 
-      return a.name.localeCompare(b.name);
-    })
-  }
+        // 2) both fav or both non-fav → apply secondary order
+        const aOrder = orderMap[a.name] ?? Number.MAX_SAFE_INTEGER;
+        const bOrder = orderMap[b.name] ?? Number.MAX_SAFE_INTEGER;
+
+        if (aOrder !== bOrder) return aOrder - bOrder;
+
+        // 3) fallback: alphabetical
+        return a.name.localeCompare(b.name);
+      });
+  };
 
   useEffect(() => {
     const fetchRepos = async () => {
       setLoading(true);
       try {
-        const response = await fetch(
-          `https://api.github.com/users/ppriyankuu/repos?per_page=100`
-        );
-        if (!response.ok) {
-          throw new Error('Failed to fetch repositories');
+        const [reposRes, starredRes] = await Promise.all([
+          fetch(`https://api.github.com/users/ppriyankuu/repos?per_page=100`, {
+            headers: {
+              Accept: "application/vnd.github.mercy-preview+json",
+            }
+          }),
+          fetch(`https://api.github.com/users/ppriyankuu/starred?per_page=100`),
+        ]);
+
+        if (!reposRes.ok || !starredRes.ok) {
+          throw new Error("Failed to fetch repositories");
         }
 
-        const data: Repo[] = await response.json();
+        const reposData: Repo[] = await reposRes.json();
+        const starredData: StarredRepo[] = await starredRes.json();
 
-        setRepos(sortRepos(data));
+        const favoriteNames = starredData
+          .filter((repo) => repo.owner?.login === "ppriyankuu")
+          .map((repo) => repo.name);
+
+        setRepos(sortRepos(reposData, favoriteNames));
       } catch (error) {
         console.error('Error fetching repos:', error);
       } finally {
         setLoading(false);
       }
     };
+
     fetchRepos();
   }, []);
 
@@ -118,10 +175,24 @@ const Repos = () => {
                   <p className="text-xs md:text-sm text-gray-400 mb-2">
                     Updated {formatDate(repo.updated_at)}
                   </p>
-                  <p className="text-sm md:text-base line-clamp-3 mb-12">
+                  <p className="text-sm md:text-base line-clamp-3 mb-4">
                     {repo.description || 'No description available'}
                   </p>
                 </div>
+
+                {repo.topics && repo.topics.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-0 mb-10">
+                    {repo.topics.slice(0, 4).map((topic) => (
+                      <span
+                        key={topic}
+                        className="px-3 py-1 text-xs md:text-sm bg-neutral-700 border border-neutral-600 rounded-full text-indigo-300"
+                      >
+                        {topic}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
                 <div className="absolute bottom-6 left-4">
                   <a
                     href={repo.html_url}
