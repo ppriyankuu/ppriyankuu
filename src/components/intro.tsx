@@ -13,18 +13,18 @@ const Intro = () => {
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-lexend mb-4 md:mb-6">
                         About Me.
                     </h2>
-                    <p className="text-lg font-lexend leading-relaxed mx-auto md:mx-0">
-                      {`Hey, I’m`}
-                      <span className="bg-rose-400 text-neutral-900 px-1 rounded-md ml-2">
-                        Priyanku
-                      </span>{" "} <br />
-                      {`I write code that mostly behaves itself.`}
-                      <br />
-                      {`I like building things that are fast, clean, and don’t fall apart when you look away.`} 
-                      <br />  
-                      {`I enjoy figuring out how things work (and sometimes why they don’t).`}
-                      <br />
-                      {`I also write blogs occasionally — tech, ideas, or whatever pops into my head.`}
+                    <p className="text-lg font-lexend leading-relaxed mx-auto md:mx-0 text-pretty">
+                        {`Hey, I’m`}
+                        <span className="bg-rose-400 text-neutral-900 p-1 rounded-md ml-2">
+                            Priyanku Gogoi.
+                        </span>{""} <br />
+                        {`I write code that mostly behaves itself.`}
+                        <br />
+                        {`I like building things that are fast, clean, and don’t fall apart when you look away.`}
+                        <br />
+                        {`I enjoy figuring out how things work (and sometimes why they don’t).`}
+                        <br />
+                        {`I also write blogs occasionally — tech, ideas, or whatever pops into my head.`}
                     </p>
                 </div>
                 {/* Image Section */}
