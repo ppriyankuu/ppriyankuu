@@ -180,17 +180,19 @@ const Repos = () => {
                   </p>
                 </div>
 
-                {repo.topics && repo.topics.length > 0 && (
-                  <div className="flex flex-wrap gap-2 mt-0 mb-10">
+                {repo.topics && repo.topics.length > 0 ? (
+                  <div className="flex flex-wrap gap-2 mt-0 mb-12 cursor-default select-none">
                     {repo.topics.slice(0, 4).map((topic) => (
                       <span
                         key={topic}
-                        className="px-3 py-1 text-xs md:text-sm bg-neutral-700 border border-neutral-600 rounded-full text-indigo-300"
+                        className="px-3 py-1 text-xs md:text-sm border-[1.9px] border-gray-500 rounded-full text-indigo-300 mouse-"
                       >
                         {topic}
                       </span>
                     ))}
                   </div>
+                ) : (
+                  <div className='h-9'></div>
                 )}
 
                 <div className="absolute bottom-6 left-4">
