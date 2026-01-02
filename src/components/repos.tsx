@@ -6,6 +6,7 @@ interface Repo {
   name: string;
   description: string | null;
   html_url: string;
+  homepage?: string | null;
   updated_at: string;
   topics?: string[];
 }
@@ -16,6 +17,8 @@ interface StarredRepo {
 }
 
 const SECONDARY_PICKS: string[] = [
+  "terwmser",
+  "refacto",
   "godkv",
   "easymod",
   "container-playground",
@@ -33,15 +36,8 @@ const SECONDARY_PICKS: string[] = [
 const TO_BE_HIDDEN_REPOS: string[] = [
   "cms",
   "IBM-repo",
-  "echome",
   "doc",
-  "klinky",
   "goofinAround",
-  "nestjs-prac",
-  "file-sharing-app",
-  "WhiteboardCanvas",
-  "snippy",
-  "Dynamic-social-app"
 ];
 
 const Repos = () => {
@@ -64,17 +60,28 @@ const Repos = () => {
         const aFav = favoriteSet.has(a.name);
         const bFav = favoriteSet.has(b.name);
 
-        // 1) favorites first
+        // 1) starred repos first
         if (aFav && !bFav) return -1;
         if (!aFav && bFav) return 1;
 
-        // 2) both fav or both non-fav → apply secondary order
-        const aOrder = orderMap[a.name] ?? Number.MAX_SAFE_INTEGER;
-        const bOrder = orderMap[b.name] ?? Number.MAX_SAFE_INTEGER;
+        // 2) both starred → homepage first
+        if (aFav && bFav) {
+          const aHasSite = !!a.homepage?.trim();
+          const bHasSite = !!b.homepage?.trim();
 
-        if (aOrder !== bOrder) return aOrder - bOrder;
+          if (aHasSite && !bHasSite) return -1;
+          if (!aHasSite && bHasSite) return 1;
+        }
 
-        // 3) fallback: alphabetical
+        // 3) non-starred → secondary picks ordering
+        if (!aFav && !bFav) {
+          const aOrder = orderMap[a.name] ?? Number.MAX_SAFE_INTEGER;
+          const bOrder = orderMap[b.name] ?? Number.MAX_SAFE_INTEGER;
+
+          if (aOrder !== bOrder) return aOrder - bOrder;
+        }
+
+        // 4) fallback: alphabetical
         return a.name.localeCompare(b.name);
       });
   };
@@ -197,12 +204,12 @@ const Repos = () => {
 
                 <div className="absolute bottom-6 left-4">
                   <a
-                    href={repo.html_url}
+                    href={repo.homepage || repo.html_url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-teal-700 text-white px-4 py-2 rounded-full hover:bg-indigo-800 text-sm md:text-base"
                   >
-                    View Repo
+                    {repo.homepage ? "Visit Site" : "View Repo"}
                   </a>
                 </div>
               </div>
