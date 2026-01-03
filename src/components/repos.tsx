@@ -202,16 +202,28 @@ const Repos = () => {
                   <div className='h-9'></div>
                 )}
 
-                <div className="absolute bottom-6 left-4">
+                <div className="absolute bottom-5 left-4 right-4 flex gap-3">
                   <a
-                    href={repo.homepage || repo.html_url}
+                    href={repo.html_url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-teal-700 text-white px-4 py-2 rounded-full hover:bg-indigo-800 text-sm md:text-base"
                   >
-                    {repo.homepage ? "Visit Site" : "View Repo"}
+                    View Repo
                   </a>
+
+                  {repo.homepage && (
+                    <a
+                      href={repo.homepage}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-indigo-500 text-white px-4 py-2 rounded-full hover:bg-indigo-800 text-sm md:text-base"
+                    >
+                      Visit Site
+                    </a>
+                  )}
                 </div>
+
               </div>
             ))
           ) : (
