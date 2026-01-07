@@ -18,8 +18,8 @@ interface StarredRepo {
 
 const SECONDARY_PICKS: string[] = [
   "terwmser",
-  "refacto",
   "godkv",
+  "refacto",
   "easymod",
   "container-playground",
   "stocky",
