@@ -25,9 +25,3 @@ const priyankuGogoi = {
     funFact: "I can debug faster when someone's helping me out!",
 };
 ```
-
-<div>
-    <p> 
-        <img src="https://github-readme-stats.vercel.app/api?username=ppriyankuu&show_icons=true&theme=midnight-purple" alt="Priyanku's GitHub stats" height="160"> &nbsp; &nbsp; 
-    </p> 
-</div>
