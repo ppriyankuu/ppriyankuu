@@ -17,10 +17,10 @@ interface StarredRepo {
 }
 
 const SECONDARY_PICKS: string[] = [
+  "code-bits",
   "terwmser",
   "godkv",
   "refacto",
-  "vault",
   "easymod",
   "container-playground",
   "stocky",
@@ -30,6 +30,7 @@ const SECONDARY_PICKS: string[] = [
   "ppriyankuu",
   "db-replication",
   "file-share-backend",
+  "vault",
   "seiban",
   "file-upload-api",
   "3d-renderer",
