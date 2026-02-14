@@ -20,6 +20,7 @@ const SECONDARY_PICKS: string[] = [
   "terwmser",
   "godkv",
   "refacto",
+  "vault",
   "easymod",
   "container-playground",
   "stocky",
