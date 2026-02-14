@@ -17,7 +17,7 @@ interface StarredRepo {
 }
 
 const SECONDARY_PICKS: string[] = [
-  "code-bits",
+  "codebits",
   "terwmser",
   "godkv",
   "refacto",
