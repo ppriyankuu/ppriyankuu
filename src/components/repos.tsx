@@ -40,6 +40,8 @@ const TO_BE_HIDDEN_REPOS: string[] = [
   "file-upload-api",
   "doc",
   "goofinAround",
+  "Recipe-social-app",
+  "tiny.link",
 ];
 
 const Repos = () => {
