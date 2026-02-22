@@ -29,15 +29,15 @@ const SECONDARY_PICKS: string[] = [
   "secret-speak",
   "ppriyankuu",
   "db-replication",
-  "file-share-backend",
   "vault",
   "seiban",
-  "file-upload-api",
   "3d-renderer",
 ];
 const TO_BE_HIDDEN_REPOS: string[] = [
   "cms",
+  "file-share-backend",
   "IBM-repo",
+  "file-upload-api",
   "doc",
   "goofinAround",
 ];
