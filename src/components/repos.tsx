@@ -17,7 +17,9 @@ interface StarredRepo {
 }
 
 const SECONDARY_PICKS: string[] = [
+  "chunx",
   "codebits",
+  "rent",
   "terwmser",
   "godkv",
   "refacto",
@@ -25,16 +27,15 @@ const SECONDARY_PICKS: string[] = [
   "container-playground",
   "stocky",
   "system-monitor",
-  "chat-ws-server",
   "secret-speak",
   "ppriyankuu",
-  "db-replication",
   "vault",
   "seiban",
   "3d-renderer",
 ];
 const TO_BE_HIDDEN_REPOS: string[] = [
   "cms",
+  "db-replication",
   "file-share-backend",
   "IBM-repo",
   "file-upload-api",
@@ -42,6 +43,7 @@ const TO_BE_HIDDEN_REPOS: string[] = [
   "goofinAround",
   "Recipe-social-app",
   "tiny.link",
+  "chat-ws-server",
 ];
 
 const Repos = () => {
