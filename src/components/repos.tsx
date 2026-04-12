@@ -18,6 +18,7 @@ interface StarredRepo {
 
 const SECONDARY_PICKS: string[] = [
   "chunx",
+  "d1rect",
   "codebits",
   "rent",
   "terwmser",
