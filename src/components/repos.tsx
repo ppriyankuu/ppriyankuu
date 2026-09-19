@@ -1,5 +1,7 @@
 'use client';
 import { useEffect, useState, useRef } from 'react';
+import { FaGithub } from 'react-icons/fa';
+import { HiArrowUpRight, HiArrowTopRightOnSquare } from 'react-icons/hi2';
 
 interface Repo {
   id: number;
@@ -167,102 +169,155 @@ const Repos = () => {
   };
 
   return (
-    <section
-      id="repos"
-      className="bg-neutral-900 text-white p-4 md:p-8 lg:p-12 border-2 border-red-400 rounded-2xl my-4 overflow-hidden"
-    >
-      <div className="container mx-auto">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-lexend text-center mb-6 md:mb-8">
-          GitHub Repositories.
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {visibleRepos.length > 0 ? (
-            visibleRepos.map((repo) => (
-              <div
-                key={repo.id}
-                className={`bg-neutral-800 border-2 border-indigo-400 rounded-2xl p-4 md:p-6 flex flex-col h-full relative min-h-[120px]`}
-              >
-                <div className="flex-1">
-                  <h3 className="text-xl md:text-2xl font-bold">
-                    {repo.name}
-                  </h3>
-                  <p className="text-xs md:text-sm text-gray-400 mb-2">
-                    Updated {formatDate(repo.updated_at)}
-                  </p>
-                  <p className="text-sm md:text-base line-clamp-3 mb-4">
-                    {repo.description || 'No description available'}
-                  </p>
-                </div>
+    <section id="repos" className="space-y-6">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <div>
+          <h2 className="text-xs uppercase tracking-widest font-semibold text-indigo-400 mb-2">
+            Code & Projects
+          </h2>
+          <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+            Things I&apos;ve built.
+          </h3>
+        </div>
+        <a
+          href="https://github.com/ppriyankuu?tab=repositories"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xs sm:text-sm text-zinc-400 hover:text-white inline-flex items-center gap-1 group transition-colors self-start sm:self-auto"
+        >
+          <span>View all on GitHub</span>
+          <HiArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+        </a>
+      </div>
 
-                {repo.topics && repo.topics.length > 0 ? (
-                  <div className="flex flex-wrap gap-2 mt-0 mb-12 cursor-default select-none">
-                    {repo.topics.slice(0, 4).map((topic) => (
-                      <span
-                        key={topic}
-                        className="px-3 py-1 text-xs md:text-sm border-[1.9px] border-gray-500 rounded-full text-indigo-300 mouse-"
-                      >
-                        {topic}
-                      </span>
-                    ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {loading && repos.length === 0 ? (
+          // Skeleton Loading States
+          Array.from({ length: 6 }).map((_, i) => (
+            <div
+              key={i}
+              className="bg-zinc-950/40 border border-zinc-800/80 rounded-2xl p-5 sm:p-6 animate-pulse space-y-4"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-zinc-800"></div>
+                <div className="h-5 w-32 bg-zinc-800 rounded"></div>
+              </div>
+              <div className="h-3 w-24 bg-zinc-800/60 rounded"></div>
+              <div className="space-y-2">
+                <div className="h-3 w-full bg-zinc-800/60 rounded"></div>
+                <div className="h-3 w-4/5 bg-zinc-800/60 rounded"></div>
+              </div>
+              <div className="flex gap-2 pt-4">
+                <div className="h-8 flex-1 bg-zinc-800/80 rounded-xl"></div>
+                <div className="h-8 flex-1 bg-zinc-800/80 rounded-xl"></div>
+              </div>
+            </div>
+          ))
+        ) : visibleRepos.length > 0 ? (
+          visibleRepos.map((repo) => (
+            <div
+              key={repo.id}
+              className="group relative bg-zinc-950/40 border border-zinc-800/80 hover:border-zinc-700 rounded-2xl p-5 sm:p-6 flex flex-col justify-between backdrop-blur-sm transition-all duration-300 hover:bg-zinc-900/40"
+            >
+              <div>
+                <div className="flex items-start justify-between gap-3 mb-2.5">
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <div className="p-2 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 group-hover:text-indigo-400 group-hover:border-indigo-500/30 transition-colors flex-shrink-0">
+                      <FaGithub className="w-4 h-4" />
+                    </div>
+                    <h4 className="text-base font-semibold text-zinc-100 group-hover:text-white transition-colors truncate">
+                      {repo.name}
+                    </h4>
                   </div>
-                ) : (
-                  <div className='h-9'></div>
-                )}
 
-                <div className="absolute bottom-5 left-4 right-4 flex gap-3">
                   <a
                     href={repo.html_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-teal-700 text-white px-4 py-2 rounded-full hover:bg-indigo-800 text-sm md:text-base"
+                    aria-label={`View code for ${repo.name}`}
+                    title="GitHub repo"
+                    className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800/80 transition-colors flex-shrink-0"
                   >
-                    View Repo
+                    <HiArrowTopRightOnSquare className="w-4 h-4" />
                   </a>
+                </div>
 
+                <p className="text-xs text-zinc-500 mb-3">
+                  Updated {formatDate(repo.updated_at)}
+                </p>
+
+                <p className="text-xs sm:text-sm text-zinc-400 line-clamp-3 leading-relaxed mb-4">
+                  {repo.description || "No description provided."}
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-zinc-800/50 mt-auto">
+                {repo.topics && repo.topics.length > 0 ? (
+                  <div className="flex flex-wrap gap-1.5 mb-3.5">
+                    {repo.topics.slice(0, 3).map((topic) => (
+                      <span
+                        key={topic}
+                        className="px-2 py-0.5 text-[11px] rounded-md bg-zinc-900/90 border border-zinc-800 text-zinc-400 font-mono"
+                      >
+                        #{topic}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+
+                <div className="flex items-center gap-2">
+                  <a
+                    href={repo.html_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 text-center py-2 px-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-xs font-medium text-zinc-200 hover:text-white border border-zinc-800 hover:border-zinc-700 transition-colors"
+                  >
+                    View Code
+                  </a>
                   {repo.homepage && (
                     <a
                       href={repo.homepage}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-indigo-500 text-white px-4 py-2 rounded-full hover:bg-indigo-800 text-sm md:text-base"
+                      className="flex-1 text-center py-2 px-3 rounded-xl bg-indigo-600/10 hover:bg-indigo-600/20 text-xs font-medium text-indigo-300 hover:text-indigo-200 border border-indigo-500/30 transition-colors"
                     >
-                      Visit Site
+                      Live Demo
                     </a>
                   )}
                 </div>
-
               </div>
-            ))
-          ) : (
-            <div className="col-span-full text-center text-gray-400">
-              {loading ? 'Loading repos...' : 'No repositories found.'}
             </div>
-          )}
-        </div>
-        <div
-          ref={buttonsRef}
-          className="flex flex-col md:flex-row gap-4 justify-center mt-8"
-        >
-          {hasMore && (
-            <button
-              onClick={handleLoadMore}
-              disabled={loading}
-              aria-label="Load more repositories"
-              className="border-2 text-white px-6 py-3 rounded-full hover:bg-white hover:border-black hover:text-black disabled:opacity-50"
-            >
-              {loading ? 'Loading...' : 'Load More'}
-            </button>
-          )}
-          {page > 1 && (
-            <button
-              onClick={handleLoadLess}
-              aria-label="Load fewer repositories"
-              className="border-2 text-white px-6 py-3 rounded-full hover:bg-white hover:border-black hover:text-black"
-            >
-              Load Less
-            </button>
-          )}
-        </div>
+          ))
+        ) : (
+          <div className="col-span-full text-center py-12 text-zinc-500 border border-dashed border-zinc-800 rounded-2xl">
+            No repositories found.
+          </div>
+        )}
+      </div>
+
+      <div
+        ref={buttonsRef}
+        className="flex items-center justify-center gap-3 pt-4"
+      >
+        {hasMore && (
+          <button
+            onClick={handleLoadMore}
+            disabled={loading}
+            aria-label="Load more repositories"
+            className="px-5 py-2 rounded-full text-xs sm:text-sm font-medium bg-zinc-900 hover:bg-zinc-800 text-zinc-200 hover:text-white border border-zinc-800 hover:border-zinc-700 transition-all duration-200 disabled:opacity-50 shadow-sm"
+          >
+            {loading ? "Loading..." : "Load More"}
+          </button>
+        )}
+        {page > 1 && (
+          <button
+            onClick={handleLoadLess}
+            aria-label="Load fewer repositories"
+            className="px-5 py-2 rounded-full text-xs sm:text-sm font-medium bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white border border-zinc-800 hover:border-zinc-700 transition-all duration-200 shadow-sm"
+          >
+            Show Less
+          </button>
+        )}
       </div>
     </section>
   );

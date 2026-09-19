@@ -1,42 +1,89 @@
 import { FaLinkedin, FaInstagram, FaGithub, FaMedium } from 'react-icons/fa';
+import { HiArrowUpRight } from 'react-icons/hi2';
 
 const SocialLinks = () => {
+  const currentYear = new Date().getFullYear();
+
   const links = [
-    { name: 'LinkedIn', icon: FaLinkedin, url: 'https://www.linkedin.com/in/priyanku-gogoi', color: 'text-blue-500' },
-    { name: 'Instagram', icon: FaInstagram, url: 'https://instagram.com/demphooo', color: 'text-pink-500' },
-    { name: 'GitHub', icon: FaGithub, url: 'https://github.com/ppriyankuu', color: 'text-gray-200' },
-    { name: 'Medium', icon: FaMedium, url: 'https://medium.com/@ppriyankuu', color: 'text-green-400' },
+    {
+      name: 'GitHub',
+      handle: '@ppriyankuu',
+      icon: FaGithub,
+      url: 'https://github.com/ppriyankuu',
+      color: 'hover:text-white',
+    },
+    {
+      name: 'LinkedIn',
+      handle: 'priyanku-gogoi',
+      icon: FaLinkedin,
+      url: 'https://www.linkedin.com/in/priyanku-gogoi',
+      color: 'hover:text-[#0a66c2]',
+    },
+    {
+      name: 'Medium',
+      handle: '@ppriyankuu',
+      icon: FaMedium,
+      url: 'https://medium.com/@ppriyankuu',
+      color: 'hover:text-emerald-400',
+    },
+    {
+      name: 'Instagram',
+      handle: '@demphooo',
+      icon: FaInstagram,
+      url: 'https://instagram.com/demphooo',
+      color: 'hover:text-pink-400',
+    },
   ];
 
   return (
-    <section id="social" className="bg-neutral-900 text-white p-4 rounded-2xl mt-4 border-2 border-rose-400">
-      <div className="container mx-auto">
-        {/* Responsive Title */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-lexend text-center">
-          Socials.
-        </h2>
-        {/* Social Icons Container */}
-        <div className="flex justify-center space-x-6 sm:space-x-8 mt-4 mb-5 flex-wrap">
-          {links.map((link, index) => (
-            <a
-              key={index}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${link.color} text-3xl sm:text-4xl hover:text-gray-300 transition duration-300`}
-            >
-              <link.icon />
-            </a>
-          ))}
+    <footer id="social" className="space-y-12 pt-8 border-t border-zinc-800/60">
+      {/* Contact Callout Card */}
+      <div className="bg-gradient-to-b from-zinc-900/60 to-zinc-950/60 border border-zinc-800/80 rounded-3xl p-6 sm:p-10 backdrop-blur-sm text-center relative overflow-hidden">
+        <div className="max-w-xl mx-auto space-y-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-medium">
+            👋 Say hello
+          </div>
+
+          <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+            Catch me on the internet.
+          </h3>
+
+          <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-md mx-auto">
+            Found a bug in my code, liked an article, or just want to say hi? Feel free to reach out.
+          </p>
+
+          {/* Social Links Cards */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4">
+            {links.map((link) => (
+              <a
+                key={link.name}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-zinc-900/80 hover:bg-zinc-800/90 border border-zinc-800 hover:border-zinc-700 text-zinc-300 transition-all duration-200 ${link.color}`}
+              >
+                <link.icon className="text-base sm:text-lg flex-shrink-0" />
+                <span className="text-xs sm:text-sm font-medium">{link.name}</span>
+                <HiArrowUpRight className="w-3 h-3 text-zinc-500 group-hover:text-zinc-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </a>
+            ))}
+          </div>
         </div>
-        {/* Footer Text */}
-        <h3 className="text-center text-sm sm:text-base md:text-lg">
-          Made with{' '}
-          <span className="bg-rose-500 rounded-md px-1 text-black">10%</span> skills,{' '}
-          <span className="bg-rose-500 rounded-md px-1 text-black">90%</span> AI. 🧑‍💻🔥
-        </h3>
       </div>
-    </section>
+
+      {/* Footer Bottom Bar */}
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500 pb-4">
+        <p>© {currentYear} Priyanku Gogoi. All rights reserved.</p>
+
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900/60 border border-zinc-800/60 font-mono text-[11px] text-zinc-400">
+          <span>Crafted with</span>
+          <span className="text-indigo-400 font-semibold">10% skills</span>
+          <span>&</span>
+          <span className="text-pink-400 font-semibold">90% AI</span>
+          <span>🧑‍💻</span>
+        </div>
+      </div>
+    </footer>
   );
 };
 

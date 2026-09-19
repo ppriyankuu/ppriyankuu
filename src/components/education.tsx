@@ -1,62 +1,90 @@
 import React from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
+import { HiArrowUpRight, HiAcademicCap } from 'react-icons/hi2';
 
 const Education = () => {
-    const educationDetails = [
-        {
-            title: 'Schooling',
-            institution: 'Army Public School',
-            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRW6wv3XbMavAlX4zVDaTq4tzOU_KWku7FSA&s',
-            description: 'Completed my schooling at Army Public School.',
-            url: 'https://en.wikipedia.org/wiki/Indian_Army_Public_Schools',
-        },
-        {
-            title: "Bachelor's Degree",
-            institution: 'Kaziranga University',
-            image: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.ambitionbox.com%2Fassets%2Fv2%2Fimages%2Frs%3Afit%3A1280%3A960%3Afalse%3Afalse%2FbG9jYWw6Ly8vbG9nb3Mvb3JpZ2luYWxzL2themlyYW5nYS11bml2ZXJzaXR5LmpwZw.png&f=1&nofb=1&ipt=bd3dfe71fd083937c3eeb9c2733f7f6c1d2eec570ffa8a8c76628132ecd73aba&ipo=images',
-            description: 'Pursued a degree in Computer Applications from Kaziranga University.',
-            url: 'https://kzu.ac.in/',
-        },
-    ];
+  const educationDetails = [
+    {
+      title: 'Schooling',
+      institution: 'Army Public School',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRW6wv3XbMavAlX4zVDaTq4tzOU_KWku7FSA&s',
+      description: 'Learned science and math. Somehow made it through the exams.',
+      url: 'https://en.wikipedia.org/wiki/Indian_Army_Public_Schools',
+    },
+    {
+      title: 'Bachelor of Computer Applications',
+      institution: 'Kaziranga University',
+      image: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAGF-l7_cKq9dKcOqj5V1GbfXNhZ2KeQLhaFQn_6k_g%3Ds900-mo-c-c0xffffffff-rj-k-no&f=1&nofb=1&ipt=0e89dba055570f2192f2fc28763d9228d8c9d7c79cb7a8b56997aec104d24407',
+      description: 'Started with programming and data structures. The bugs came free of charge.',
+      url: 'https://kzu.ac.in/',
+    },
+    {
+      title: 'Master of Computer Applications',
+      institution: 'Tezpur University',
+      image: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.cyvoVZ2QUdh8MG02UQuRNAHaHa%3Fpid%3DApi&f=1&ipt=92b042197a5fdfc1be6ccfee19e4b4539c27d7c09926ee15c32ba4ce61cff851',
+      description: 'Learning software engineering, systems, and algorithms — basically teaching computers to cooperate.',
+      url: 'https://www.tezu.ernet.in/',
+    },
+  ];
 
-    return (
-        <section id="education" className="bg-neutral-900 text-white p-6 rounded-xl mt-4 border-2 border-rose-400">
-            <div className="container mx-auto">
-                <h2 className="text-3xl md:text-5xl font-bold mb-8 font-lexend text-center">
-                    Education.
-                </h2>
-                <div className="grid gap-6 sm:grid-cols-2 max-w-3xl mx-auto">
-                    {educationDetails.map((edu, index) => (
-                        <Link
-                            key={index}
-                            href={edu.url} // Link to the respective website
-                            target="_blank" // Open link in a new tab
-                            rel="noopener noreferrer" // Security best practice for external links
-                            className="border-2 border-indigo-400 rounded-xl p-6 flex-col flex items-center sm:items-start space-y-4 text-center sm:text-left bg-neutral-800 shadow-lg transition-transform duration-300 hover:scale-105"
-                        >
-                            <Image
-                                src={edu.image}
-                                alt={`${edu.title} at ${edu.institution}`}
-                                width={144}
-                                height={144}
-                                className="rounded-full object-cover aspect-square border-4 border-yellow-500"
-                            />
+  return (
+    <section id="education" className="space-y-6">
+      <div>
+        <h2 className="text-xs uppercase tracking-widest font-semibold text-indigo-400 mb-2">
+          Education
+        </h2>
+        <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+          Where I studied.
+        </h3>
+      </div>
 
-                            <div className="font-lexend">
-                                <h3 className="text-lg sm:text-2xl font-bold">{edu.title}</h3>
-                                <p className="text-base text-gray-300">{edu.institution}</p>
-                                <p className="text-sm mt-2 font-geist-italic">{edu.description}</p>
-                            </div>
-                        </Link>
-                    ))}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {educationDetails.map((edu, index) => (
+          <a
+            key={index}
+            href={edu.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group bg-zinc-950/40 border border-zinc-800/80 hover:border-zinc-700 rounded-2xl p-5 sm:p-6 flex flex-col justify-between backdrop-blur-sm transition-all duration-300 hover:bg-zinc-900/40"
+          >
+            <div>
+              <div className="flex items-center justify-between gap-3 mb-4">
+                <div className="relative w-12 h-12 rounded-xl border border-zinc-800 bg-zinc-900 flex items-center justify-center overflow-hidden flex-shrink-0 p-1">
+                  <Image
+                    src={edu.image}
+                    alt={`${edu.title} at ${edu.institution}`}
+                    width={48}
+                    height={48}
+                    className="w-full h-full object-contain rounded-lg"
+                  />
                 </div>
-                <h3 className="text-center text-sm font-lexend sm:text-base md:text-lg mt-6">
-                    <span className="font-geist-italic">Never failed a test I didn&apos;t take.</span> 🧠📚
-                </h3>
+                <HiArrowUpRight className="w-4 h-4 text-zinc-500 group-hover:text-zinc-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform flex-shrink-0" />
+              </div>
+
+              <h4 className="text-base font-semibold text-zinc-100 group-hover:text-indigo-300 transition-colors mb-1">
+                {edu.title}
+              </h4>
+
+              <p className="text-sm font-medium text-zinc-400 mb-3">
+                {edu.institution}
+              </p>
+
+              <p className="text-xs sm:text-sm text-zinc-400/90 leading-relaxed">
+                {edu.description}
+              </p>
             </div>
-        </section>
-    );
+          </a>
+        ))}
+      </div>
+
+      <div className="text-center pt-2">
+        <p className="inline-flex items-center gap-2 text-xs sm:text-sm text-zinc-400 font-mono">
+          <HiAcademicCap className="w-4 h-4 text-indigo-400" />
+          <span>&ldquo;Never failed a test I didn&apos;t take.&rdquo;</span>
+        </p>
+      </div>
+    </section>
+  );
 };
 
 export default Education;

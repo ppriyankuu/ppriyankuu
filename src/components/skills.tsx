@@ -7,59 +7,82 @@ import { DiRedis } from "react-icons/di";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { TbBrandRedux } from "react-icons/tb";
 
+const skillCategories = [
+  {
+    title: "Languages & Frameworks",
+    skills: [
+      { name: 'TypeScript', icon: SiTypescript, color: 'text-[#3178c6]' },
+      { name: 'Golang', icon: FaGolang, color: 'text-[#00add8]' },
+      { name: 'React.js', icon: FaReact, color: 'text-[#61dafb]' },
+      { name: 'Next.js', icon: RiNextjsFill, color: 'text-zinc-100' },
+      { name: 'Node.js', icon: FaNodeJs, color: 'text-[#68a063]' },
+      { name: 'Express.js', icon: SiExpress, color: 'text-zinc-200' },
+      { name: 'TailwindCSS', icon: SiTailwindcss, color: 'text-[#38bdf8]' },
+      { name: 'Redux', icon: TbBrandRedux, color: 'text-[#764abc]' },
+    ],
+  },
+  {
+    title: "Databases & APIs",
+    skills: [
+      { name: 'PostgreSQL', icon: BiLogoPostgresql, color: 'text-[#4169e1]' },
+      { name: 'MongoDB', icon: SiMongodb, color: 'text-[#47a248]' },
+      { name: 'MySQL', icon: SiMysql, color: 'text-[#00758f]' },
+      { name: 'Redis', icon: DiRedis, color: 'text-[#dc382d]' },
+      { name: 'GraphQL', icon: SiGraphql, color: 'text-[#e535ab]' },
+      { name: 'Firebase', icon: SiFirebase, color: 'text-[#ffca28]' },
+    ],
+  },
+  {
+    title: "DevOps & Infrastructure",
+    skills: [
+      { name: 'Docker', icon: FaDocker, color: 'text-[#2496ed]' },
+      { name: 'AWS', icon: FaAws, color: 'text-[#ff9900]' },
+      { name: 'Nginx', icon: SiNginx, color: 'text-[#009639]' },
+      { name: 'Git', icon: FaGitAlt, color: 'text-[#f05032]' },
+    ],
+  },
+];
+
 const Skills = () => {
-  const skills = [
-    { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-500' },
-    { name: 'Golang', icon: FaGolang, color: 'text-cyan-500' },
-    { name: 'Node.js', icon: FaNodeJs, color: 'text-green-500' },
-    { name: 'Express.js', icon: SiExpress, color: 'text-green-600' },
-    { name: 'React.js', icon: FaReact, color: 'text-sky-500' },
-    { name: 'Next.js', icon: RiNextjsFill, color: 'text-gray-500' },
-    { name: 'TailwindCSS', icon: SiTailwindcss, color: 'text-teal-400' },
-    { name: 'Redux', icon: TbBrandRedux, color: 'text-purple-500' },
-    { name: 'GraphQL', icon: SiGraphql, color: 'text-pink-600' },
-    { name: 'Git', icon: FaGitAlt, color: 'text-red-700' },
-    { name: 'MongoDB', icon: SiMongodb, color: 'text-green-600' },
-    { name: 'PostgreSQL', icon: BiLogoPostgresql, color: 'text-blue-600' },
-    { name: 'MySQL', icon: SiMysql, color: 'text-orange-500' },
-    { name: 'Firebase', icon: SiFirebase, color: 'text-yellow-600' },
-    { name: 'Docker', icon: FaDocker, color: 'text-blue-800' },
-    { name: 'Redis', icon: DiRedis, color: 'text-red-500' },
-    { name: 'AWS', icon: FaAws, color: 'text-yellow-500' },
-    { name: 'Nginx', icon: SiNginx, color: 'text-green-700' },
-  ];
-
   return (
-    <section id="skills" className="bg-neutral-900 text-white border-2 border-rose-400 p-12 rounded-2xl my-4">
-      <div className="container mx-auto">
-        <h2 className="mb-8 text-3xl sm:text-4xl md:text-5xl font-bold font-lexend text-center">Skills.</h2>
+    <section id="skills" className="space-y-6">
+      <div>
+        <h2 className="text-xs uppercase tracking-widest font-semibold text-indigo-400 mb-2">
+          Tech & Tools
+        </h2>
+        <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+          Stuff I work with.
+        </h3>
+      </div>
 
-        {/* Mobile View: 3 columns */}
-        <div className="sm:hidden flex justify-center">
-          <div className="grid grid-cols-3 xs:grid-cols-3 gap-4 place-items-center">
-            {skills.map((skill, index) => (
-              <div
-                key={index}
-                className="bg-neutral-800 rounded-full border-2 border-indigo-400 w-20 h-20 flex items-center justify-center transition-transform duration-300 hover:scale-105"
-              >
-                <skill.icon className={`${skill.color}`} size={40} />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Larger screens: 2 to 6 columns */}
-        <div className="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8">
-          {skills.map((skill, index) => (
-            <div
-              key={index}
-              className="bg-neutral-800 rounded-xl border-2 border-indigo-400 p-4 flex flex-col items-center transition-transform duration-300 hover:scale-105"
-            >
-              <skill.icon size={60} className={`mb-4 ${skill.color}`} />
-              <h3 className="text-xl font-thin font-lexend">{skill.name}</h3>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {skillCategories.map((category) => (
+          <div
+            key={category.title}
+            className="bg-zinc-950/40 border border-zinc-800/80 rounded-2xl p-5 sm:p-6 backdrop-blur-sm hover:border-zinc-700/80 transition-all duration-200"
+          >
+            <div className="flex items-center gap-2 mb-4 pb-3 border-b border-zinc-800/60">
+              <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+              <h4 className="text-sm font-semibold text-zinc-200">
+                {category.title}
+              </h4>
             </div>
-          ))}
-        </div>
+
+            <div className="grid grid-cols-2 gap-2.5">
+              {category.skills.map((skill) => (
+                <div
+                  key={skill.name}
+                  className="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-zinc-900/60 border border-zinc-800/80 hover:border-zinc-700 hover:bg-zinc-800/60 transition-all duration-200 group"
+                >
+                  <skill.icon className={`${skill.color} text-lg flex-shrink-0 group-hover:scale-110 transition-transform`} />
+                  <span className="text-xs sm:text-sm font-medium text-zinc-300 group-hover:text-white truncate">
+                    {skill.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
