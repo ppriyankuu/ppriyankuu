@@ -81,7 +81,7 @@ const Intro = () => {
         {/* Avatar Section */}
         <div className="relative flex-shrink-0 group">
           {/* Soft Ambient Halo Glow */}
-          <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-indigo-500/25 via-purple-500/15 to-sky-400/20 blur-2xl -z-10 pointer-events-none group-hover:scale-105 transition-transform duration-500"></div>
+          <div className="absolute -inset-7 rounded-full bg-gradient-to-tr from-indigo-500/60 via-purple-500/45 to-sky-400/55 blur-3xl -z-10 pointer-events-none animate-pulse group-hover:scale-110 transition-transform duration-500"></div>
 
           {/* Luminous Rim & Avatar */}
           <div className="relative w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full p-1 bg-gradient-to-b from-zinc-700/60 via-zinc-800/40 to-indigo-500/20 shadow-2xl ring-1 ring-white/10">
