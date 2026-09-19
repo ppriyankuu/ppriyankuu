@@ -83,22 +83,6 @@ const MediumPosts = () => {
         });
     };
 
-    const handleScrollToSection = (
-        e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-        targetId: string
-    ) => {
-        e.preventDefault();
-        const targetElement = document.getElementById(targetId);
-
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: "smooth",
-            });
-        }
-    };
-
-
     return (
         <section id="blogs" className="space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
