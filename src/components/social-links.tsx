@@ -64,7 +64,6 @@ const SocialLinks = () => {
               >
                 <link.icon className="text-base sm:text-lg flex-shrink-0" />
                 <span className="text-xs sm:text-sm font-medium">{link.name}</span>
-                <HiArrowUpRight className="w-3 h-3 text-zinc-500 group-hover:text-zinc-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
             ))}
           </div>
