@@ -12,14 +12,14 @@ const Education = () => {
       url: 'https://en.wikipedia.org/wiki/Indian_Army_Public_Schools',
     },
     {
-      title: 'Bachelor of Computer Applications',
+      title: "Bachelor's in Computer Applications",
       institution: 'Kaziranga University',
       image: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAGF-l7_cKq9dKcOqj5V1GbfXNhZ2KeQLhaFQn_6k_g%3Ds900-mo-c-c0xffffffff-rj-k-no&f=1&nofb=1&ipt=0e89dba055570f2192f2fc28763d9228d8c9d7c79cb7a8b56997aec104d24407',
       description: 'Started with programming and data structures. The bugs came free of charge.',
       url: 'https://kzu.ac.in/',
     },
     {
-      title: 'Master of Computer Applications',
+      title: "Master's in Computer Applications",
       institution: 'Tezpur University',
       image: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.cyvoVZ2QUdh8MG02UQuRNAHaHa%3Fpid%3DApi&f=1&ipt=92b042197a5fdfc1be6ccfee19e4b4539c27d7c09926ee15c32ba4ce61cff851',
       description: 'Learning software engineering, systems, and algorithms — basically teaching computers to cooperate.',
