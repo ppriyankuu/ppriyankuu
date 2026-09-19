@@ -19,7 +19,7 @@ const Intro = () => {
           </div>
 
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
-            Hey, I’m{" "}
+            Hello, I’m{" "}
             <span className="bg-gradient-to-r from-indigo-400 via-sky-300 to-indigo-200 bg-clip-text text-transparent">
               Priyanku Gogoi.
             </span>
@@ -27,10 +27,13 @@ const Intro = () => {
 
           <div className="text-base sm:text-lg text-zinc-300/90 leading-relaxed max-w-2xl space-y-3 mb-8">
             <p>
-              I like building things that are fast, clean, and don’t fall apart when you look away.
+              I like building things that are fast, useful, and reasonably hard
+              to break.
             </p>
             <p className="text-zinc-400">
-              I enjoy figuring out how things work (and sometimes why they don’t). I also write blogs occasionally — tech, ideas, or whatever pops into my head.
+              I like understanding how things work under the hood, or why they
+              don’t. I also write about tech, ideas, and whatever happens to
+              catch my attention.
             </p>
           </div>
 
@@ -100,3 +103,4 @@ const Intro = () => {
 };
 
 export default Intro;
+
