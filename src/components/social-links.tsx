@@ -1,5 +1,4 @@
 import { FaLinkedin, FaInstagram, FaGithub, FaMedium } from 'react-icons/fa';
-import { HiArrowUpRight } from 'react-icons/hi2';
 
 const SocialLinks = () => {
   const currentYear = new Date().getFullYear();
