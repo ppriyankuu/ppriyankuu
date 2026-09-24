@@ -217,15 +217,15 @@ const Repos = () => {
           visibleRepos.map((repo) => (
             <div
               key={repo.id}
-              className="group relative bg-zinc-950/40 border border-zinc-800/80 hover:border-zinc-700 rounded-2xl p-5 sm:p-6 flex flex-col justify-between backdrop-blur-sm transition-all duration-300 hover:bg-zinc-900/40"
+              className="group relative bg-zinc-950/40 border border-zinc-800/80 hover:border-indigo-500/40 rounded-2xl p-5 sm:p-6 flex flex-col justify-between backdrop-blur-sm transition-all duration-300 hover:bg-zinc-900/50 hover:shadow-lg hover:shadow-indigo-500/5"
             >
               <div>
                 <div className="flex items-start justify-between gap-3 mb-2.5">
                   <div className="flex items-center gap-2.5 min-w-0">
-                    <div className="p-2 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 group-hover:text-indigo-400 group-hover:border-indigo-500/30 transition-colors flex-shrink-0">
+                    <div className="p-2 rounded-xl bg-zinc-900/90 border border-zinc-800 text-zinc-400 group-hover:text-indigo-400 group-hover:border-indigo-500/30 group-hover:bg-indigo-500/10 transition-all flex-shrink-0">
                       <FaGithub className="w-4 h-4" />
                     </div>
-                    <h4 className="text-base font-semibold text-zinc-100 group-hover:text-white transition-colors truncate">
+                    <h4 className="text-base font-semibold text-zinc-100 group-hover:text-indigo-300 transition-colors truncate">
                       {repo.name}
                     </h4>
                   </div>
@@ -236,14 +236,15 @@ const Repos = () => {
                     rel="noopener noreferrer"
                     aria-label={`View code for ${repo.name}`}
                     title="GitHub repo"
-                    className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800/80 transition-colors flex-shrink-0"
+                    className="p-1.5 rounded-lg text-zinc-400 hover:text-indigo-300 hover:bg-indigo-500/10 transition-colors flex-shrink-0"
                   >
                     <HiArrowTopRightOnSquare className="w-4 h-4" />
                   </a>
                 </div>
 
-                <p className="text-xs text-zinc-500 mb-3">
-                  Updated {formatDate(repo.updated_at)}
+                <p className="text-xs text-zinc-500 mb-3 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-400/60 inline-block"></span>
+                  <span>Updated {formatDate(repo.updated_at)}</span>
                 </p>
 
                 <p className="text-xs sm:text-sm text-zinc-400 line-clamp-3 leading-relaxed mb-4">
@@ -257,7 +258,7 @@ const Repos = () => {
                     {repo.topics.slice(0, 3).map((topic) => (
                       <span
                         key={topic}
-                        className="px-2 py-0.5 text-[11px] rounded-md bg-zinc-900/90 border border-zinc-800 text-zinc-400 font-mono"
+                        className="px-2 py-0.5 text-[11px] rounded-md bg-indigo-500/10 border border-indigo-500/20 text-indigo-300/90 group-hover:border-indigo-500/30 font-mono transition-colors"
                       >
                         #{topic}
                       </span>
